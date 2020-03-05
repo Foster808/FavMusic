@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Here's a favorite song right now.</h1>
+    <p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Wl_eNu4NUVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+</div>
+
+<style>
+    #container {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        background: black;
+    }
+    #animate {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-color: purple;
+    }
+</style>
+<body>
+    <p><button onclick="myMove()">Click Me!</button></p>
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+
+    <script>
+        function myMove() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            var id = setInterval(frame, 5);
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+    </script>
+
+</body>
